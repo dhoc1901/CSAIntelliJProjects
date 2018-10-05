@@ -1,0 +1,57 @@
+package com.swcompsci;
+
+import java.sql.SQLOutput;
+
+public class SciFiName {
+        /**
+         * All input that you provide should be at least three letters long
+         * or the program may crash (but feel free to test this!)
+         *
+         * For best results, user lowercase letters and do not use spaces in your input
+         */
+
+        public static void main(String[] args)
+
+
+        {
+            System.out.println("If you provide me some information I will provide a Science Fiction name for you.");
+            System.out.println("Please have all responses  be at least three characters long.");
+            System.out.println("For best results, use lowercase letters with no spaces.\n");
+
+            // notice this method (print) does not print a newline
+            System.out.print("Enter your first name: ");
+            String firstName = UserInput.getString();
+            System.out.print("Enter your last name: ");
+            String lastName = UserInput.getString();
+            System.out.print("Enter the city where you or one of your parents were born: ");
+            String city = UserInput.getString();
+            System.out.print("Enter the name of your grammar school: ");
+            String school = UserInput.getString();
+            System.out.print("Enter the first name of a sibling or other relative: ");
+            String relativeName1 = UserInput.getString();
+            System.out.print("Enter the first name of a second sibling or relative: ");
+            String relativeName2 = UserInput.getString();
+
+            // generate a sciFi name
+
+            String newFirstName = "";
+            String newLastName = "";
+            String newOrigin = "";
+
+            newFirstName += firstName.substring(0,3);
+            newFirstName += lastName.substring(0,2);
+
+            newLastName += city.substring(0,3);
+            newLastName += school.substring(0,2);
+
+            int len = (int)(Math.random()*(relativeName1.length()-1));
+            int len2 = (int)(Math.random()*(relativeName2.length()-1));
+
+            newOrigin += relativeName1.substring(len);
+            newOrigin += relativeName2.substring(len2);
+
+            System.out.print("Hello " + newFirstName + " " + newLastName);
+            System.out.print(" of " + newOrigin);
+            System.out.print(". Welcome!");
+        }
+}
